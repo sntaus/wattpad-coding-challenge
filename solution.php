@@ -18,15 +18,17 @@ foreach($inputFiles as $inputFile) {
 
 	// Iterate through all high-risk phrases
 	foreach ($hrp as $hr) {
-		if(strpos($curInput, $hr) !== false){
-			$score += 2; // Add 2 to score for every high-risk phrase
+		$count = substr_count($curInput, $hr); // Count the number of occurrences of the phrase
+		if($count > 0){
+			$score += (2 * $count); // Add 2 to score for every occurrence of the high-risk phrase
 		}	
 	}
 
 	// Iterate through all low-risk phrases
 	foreach ($lrp as $lr) {
-		if(strpos($curInput, $lr) !== false) {
-			$score++; // Add 1 to score for every low-risk phrase
+		$count = substr_count($curInput, $lr); // Count the number of occurrences of the phrase
+		if($count > 0) {
+			$score += $count; // Add 1 to score for every occurrence of the low-risk phrase
 		}	
 	}
 
