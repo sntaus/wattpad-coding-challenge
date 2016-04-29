@@ -23,6 +23,7 @@ foreach($inputFiles as $inputFile) {
 		}	
 	}
 
+	// Iterate through all low-risk phrases
 	foreach ($lrp as $lr) {
 		if(strpos($curInput, $lr) !== false) {
 			$score++; // Add 1 to score for every low-risk phrase
