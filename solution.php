@@ -1,6 +1,6 @@
 <?php
-$hrPhrasesFile = "low_risk_phrases.txt"; // Filename of file containing high-risk phrases
-$lrPhrasesFile = "high_risk_phrases.txt"; // Filename of file containing low-risk phrases
+$hrPhrasesFile = "high_risk_phrases.txt"; // Filename of file containing high-risk phrases
+$lrPhrasesFile = "low_risk_phrases.txt"; // Filename of file containing low-risk phrases
 $inputFiles = glob("input??.txt"); // Getting list of all input files in the directory
 $outputFile = "output.txt"; // Output file 
 
@@ -24,6 +24,7 @@ foreach($inputFiles as $inputFile) {
 		}	
 	}
 
+
 	// Iterate through all low-risk phrases
 	foreach ($lrp as $lr) {
 		$count = substr_count($curInput, $lr); // Count the number of occurrences of the phrase
@@ -31,6 +32,7 @@ foreach($inputFiles as $inputFile) {
 			$score += $count; // Add 1 to score for every occurrence of the low-risk phrase
 		}	
 	}
+
 
 	$outputStr .= $inputFile . ":" . $score . "\n"; // Use format <input-file-name>:<score>\n
 }
